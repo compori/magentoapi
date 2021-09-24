@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:ns1="https://magento.production.site/shop/soap/default?services=storeWebsiteRepositoryV1">
+  <env:Body>
+    <ns1:storeWebsiteRepositoryV1GetListResponse>
+      <result>
+        <item>
+          <id>0</id>
+          <code>admin</code>
+          <name>Admin</name>
+          <defaultGroupId>0</defaultGroupId>
+        </item>
+        <item>
+          <id>1</id>
+          <code>base</code>
+          <name>Connector Webseite</name>
+          <defaultGroupId>1</defaultGroupId>
+        </item>
+      </result>
+    </ns1:storeWebsiteRepositoryV1GetListResponse>
+  </env:Body>
+</env:Envelope>

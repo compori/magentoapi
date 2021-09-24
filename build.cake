@@ -127,7 +127,7 @@ Task("Test")
     CreateDirectory(codeCoverageDirectory);
 
     var includeFilter = "[Compori.MagentoApi.*]*"; 
-    var excludeFilter = "[xunit.*]*"; 
+    var excludeFilter = "[xunit.*]*%2c[Compori.MagentoApi.Authentication]*"; 
 
     var targetFrameworks = new string[] {"net48", "net5.0"};
     var projectFiles = GetFiles("./tests/**/*Tests.csproj");

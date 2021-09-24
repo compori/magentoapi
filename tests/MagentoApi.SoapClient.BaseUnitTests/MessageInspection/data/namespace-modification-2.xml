@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope">
+  <s:Header>
+    <Action s:mustUnderstand="1" xmlns="http://schemas.microsoft.com/ws/2005/05/addressing/none">storeWebsiteRepositoryV1GetList</Action>
+  </s:Header>
+  <s:Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <storeWebsiteRepositoryV1GetListRequest xmlns="http://magento.developing.site/my-shop/soap/default?services=storeWebsiteRepositoryV1">
+      <item>ABC</item>
+      <item>DEF</item>
+      <item xmlns="http://magento.developing.site/my-shop/soap/default?services=storeWebsiteRepositoryV1">XYZ</item>
+    </storeWebsiteRepositoryV1GetListRequest>
+  </s:Body>
+</s:Envelope>

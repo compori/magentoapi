@@ -9,6 +9,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{92DEB20E
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagentoApi.BaseUnitTests", "tests\MagentoApi.BaseUnitTests\MagentoApi.BaseUnitTests.csproj", "{402F68F9-EA8F-4AB5-9F06-CDCB43368FBD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagentoApi.SoapClient.Base", "src\MagentoApi.SoapClient.Base\MagentoApi.SoapClient.Base.csproj", "{21A350FE-201A-4268-9D4F-D490AE853265}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagentoApi.SoapClient.BaseUnitTests", "tests\MagentoApi.SoapClient.BaseUnitTests\MagentoApi.SoapClient.BaseUnitTests.csproj", "{2A0ADBFB-FC91-4C8D-A8AE-112BF9157EA7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagentoApi.SoapClient.DryIoc", "src\MagentoApi.SoapClient.DryIoc\MagentoApi.SoapClient.DryIoc.csproj", "{17D43451-B0D8-429A-A4E9-FE934D750A5B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MagentoApi.SoapClient.DryIocUnitTests", "tests\MagentoApi.SoapClient.DryIocUnitTests\MagentoApi.SoapClient.DryIocUnitTests.csproj", "{9A7D7D26-3AE3-4D1F-A357-5D98BF21C6EC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,12 +31,30 @@ Global
 		{402F68F9-EA8F-4AB5-9F06-CDCB43368FBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{402F68F9-EA8F-4AB5-9F06-CDCB43368FBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{402F68F9-EA8F-4AB5-9F06-CDCB43368FBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21A350FE-201A-4268-9D4F-D490AE853265}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21A350FE-201A-4268-9D4F-D490AE853265}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21A350FE-201A-4268-9D4F-D490AE853265}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21A350FE-201A-4268-9D4F-D490AE853265}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A0ADBFB-FC91-4C8D-A8AE-112BF9157EA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A0ADBFB-FC91-4C8D-A8AE-112BF9157EA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A0ADBFB-FC91-4C8D-A8AE-112BF9157EA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A0ADBFB-FC91-4C8D-A8AE-112BF9157EA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17D43451-B0D8-429A-A4E9-FE934D750A5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17D43451-B0D8-429A-A4E9-FE934D750A5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17D43451-B0D8-429A-A4E9-FE934D750A5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17D43451-B0D8-429A-A4E9-FE934D750A5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A7D7D26-3AE3-4D1F-A357-5D98BF21C6EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A7D7D26-3AE3-4D1F-A357-5D98BF21C6EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A7D7D26-3AE3-4D1F-A357-5D98BF21C6EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A7D7D26-3AE3-4D1F-A357-5D98BF21C6EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{402F68F9-EA8F-4AB5-9F06-CDCB43368FBD} = {92DEB20E-77E0-411D-8C2D-71C6185EAF1A}
+		{2A0ADBFB-FC91-4C8D-A8AE-112BF9157EA7} = {92DEB20E-77E0-411D-8C2D-71C6185EAF1A}
+		{9A7D7D26-3AE3-4D1F-A357-5D98BF21C6EC} = {92DEB20E-77E0-411D-8C2D-71C6185EAF1A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E05F5792-A24C-489A-B913-8FDD343641AB}
