@@ -20,6 +20,10 @@
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Compori.MagentoApi.Authentication" Version="0.1.0" />
   </ItemGroup>  
 
 </Project>

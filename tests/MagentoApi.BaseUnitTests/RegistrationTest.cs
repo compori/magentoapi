@@ -20,11 +20,11 @@ namespace MagentoApi.BaseUnitTests
             IServiceRegistry registry = new ServiceRegistry();
 
             ArgumentNullException argNullEx;
-            argNullEx = Assert.Throws<ArgumentNullException>(() => sut.RegisterAssembly<IClientChannel>(null, null));
+            argNullEx = Assert.Throws<ArgumentNullException>(() => Registration.RegisterAssembly<IClientChannel>(null, null));
             Assert.Equal("assembly", argNullEx.ParamName);
-            argNullEx = Assert.Throws<ArgumentNullException>(() => sut.RegisterAssembly<IClientChannel>(null, registry));
+            argNullEx = Assert.Throws<ArgumentNullException>(() => Registration.RegisterAssembly<IClientChannel>(null, registry));
             Assert.Equal("assembly", argNullEx.ParamName);
-            argNullEx = Assert.Throws<ArgumentNullException>(() => sut.RegisterAssembly<IClientChannel>(sut.GetType().Assembly, null));
+            argNullEx = Assert.Throws<ArgumentNullException>(() => Registration.RegisterAssembly<IClientChannel>(sut.GetType().Assembly, null));
             Assert.Equal("registry", argNullEx.ParamName);
         }
 
@@ -40,7 +40,7 @@ namespace MagentoApi.BaseUnitTests
             Assert.Null(registry.Find(typeof(test3ServiceV1PortTypeChannel)));
             Assert.Null(registry.Find(typeof(test4ServiceV1PortTypoChannel)));
 
-            sut.RegisterAssembly<IClientChannel>(sut.GetType().Assembly, registry, "MagentoApi.BaseUnitTests.Fixtures.Registration.RemoteServices", "PortTypeChannel");
+            Registration.RegisterAssembly<IClientChannel>(sut.GetType().Assembly, registry, "MagentoApi.BaseUnitTests.Fixtures.Registration.RemoteServices", "PortTypeChannel");
 
             Assert.Null(registry.Find(typeof(PortTypeChannel)));
             Assert.Null(registry.Find(typeof(test1ServiceV1PortTypeChannel)));

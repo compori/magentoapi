@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>net5.0;net48</TargetFrameworks>
@@ -27,6 +27,21 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\MagentoApi.Base\MagentoApi.Base.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Settings\data\dummy-settings.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Settings\data\settings-loader-1.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Settings\data\settings-loader-3.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Settings\data\settings-loader-2.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

@@ -15,7 +15,7 @@ namespace Compori.MagentoApi
         /// <param name="interfaceNameSuffix">The interface name suffix.</param>
         /// <exception cref="ArgumentNullException">assembly</exception>
         /// <exception cref="ArgumentNullException">registry</exception>
-        public void RegisterAssembly<T>(System.Reflection.Assembly assembly, IServiceRegistry registry, string namespaceName = null, string interfaceNameSuffix = null)
+        public static void RegisterAssembly<T>(System.Reflection.Assembly assembly, IServiceRegistry registry, string namespaceName = null, string interfaceNameSuffix = null)
         {
             if(assembly == null)
             {
