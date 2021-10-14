@@ -1,5 +1,4 @@
 ﻿using Compori.MagentoApi;
-using FixuresRegistration = MagentoApi.BaseUnitTests.Fixtures.Registration.Registration;
 using System;
 using Xunit.Categories;
 using Xunit;
@@ -15,8 +14,7 @@ namespace MagentoApi.BaseUnitTests
     {
         [Fact]
         public void TestRegisterAssemblyFailure()
-        {
-            var sut = new FixuresRegistration();
+        {            
             IServiceRegistry registry = new ServiceRegistry();
 
             ArgumentNullException argNullEx;
@@ -24,14 +22,13 @@ namespace MagentoApi.BaseUnitTests
             Assert.Equal("assembly", argNullEx.ParamName);
             argNullEx = Assert.Throws<ArgumentNullException>(() => Registration.RegisterAssembly<IClientChannel>(null, registry));
             Assert.Equal("assembly", argNullEx.ParamName);
-            argNullEx = Assert.Throws<ArgumentNullException>(() => Registration.RegisterAssembly<IClientChannel>(sut.GetType().Assembly, null));
+            argNullEx = Assert.Throws<ArgumentNullException>(() => Registration.RegisterAssembly<IClientChannel>(this.GetType().Assembly, null));
             Assert.Equal("registry", argNullEx.ParamName);
         }
 
         [Fact]
         public void RegisterAssemblyTest()
-        {
-            var sut = new FixuresRegistration();
+        {            
             IServiceRegistry registry = new ServiceRegistry();
 
             Assert.Null(registry.Find(typeof(PortTypeChannel)));
@@ -40,7 +37,7 @@ namespace MagentoApi.BaseUnitTests
             Assert.Null(registry.Find(typeof(test3ServiceV1PortTypeChannel)));
             Assert.Null(registry.Find(typeof(test4ServiceV1PortTypoChannel)));
 
-            Registration.RegisterAssembly<IClientChannel>(sut.GetType().Assembly, registry, "MagentoApi.BaseUnitTests.Fixtures.Registration.RemoteServices", "PortTypeChannel");
+            Registration.RegisterAssembly<IClientChannel>(this.GetType().Assembly, registry, "MagentoApi.BaseUnitTests.Fixtures.Registration.RemoteServices", "PortTypeChannel");
 
             Assert.Null(registry.Find(typeof(PortTypeChannel)));
             Assert.Null(registry.Find(typeof(test1ServiceV1PortTypeChannel)));

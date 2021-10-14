@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Net;
 using System.Text;
 using System.Xml;
 
@@ -76,12 +77,17 @@ namespace Compori.MagentoApi.SoapClient.MessageInspection
             //
             foreach (XmlAttribute attribute in element.Attributes)
             {
-                if (attribute.Name.StartsWith("xmlns:") && attribute.Value.StartsWith(originalBaseNamespace))
+                var attributeNamespace = WebUtility.UrlDecode(attribute.Value);
+                if (attribute.Name.StartsWith("xmlns:") && (attributeNamespace.StartsWith(originalBaseNamespace)))
                 {
-                    var xmlnsNamespaceUsedWithPrefix = attribute.Value;
+                    // var xmlnsNamespaceUsedWithPrefix = attribute.Value;
+                    var xmlnsNamespaceUsedWithPrefix = attributeNamespace;
                     var length = originalBaseNamespace.Length;
 
                     var namespaceURI = baseNamespace + xmlnsNamespaceUsedWithPrefix.Substring(length, xmlnsNamespaceUsedWithPrefix.Length - length);
+                    if (namespaceURI.EndsWith("&wsdl=1")) {
+                        namespaceURI = namespaceURI.Substring(0, namespaceURI.Length - 7);
+                    }
                     attribute.Value = namespaceURI;
 
                     if (!namespaceReplacementMap.ContainsKey(attribute.LocalName))

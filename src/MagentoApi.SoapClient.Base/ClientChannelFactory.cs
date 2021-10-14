@@ -125,7 +125,14 @@ namespace Compori.MagentoApi.SoapClient
             var adminAuthorizationToken = new AuthorizationToken(Token);
             var quantityModification = new QuantityModification();
             var isCustomerNotifiedModification = new IsCustomerNotifiedModification();
-            var inspector = new Inspector(settings, tracer, namespaceModification, quantityModification, adminAuthorizationToken, isCustomerNotifiedModification)
+            var faultModification = new FaultModification();
+            var inspector = new Inspector(
+                settings, tracer, 
+                namespaceModification, 
+                quantityModification, 
+                adminAuthorizationToken, 
+                isCustomerNotifiedModification,
+                faultModification)
             {
                 TraceMessages = settings.Trace.Enable,
                 TraceMessagesFolder = settings.Trace.MessagesFolder,

@@ -66,11 +66,5 @@ namespace Compori.MagentoApi
                 registry.Register(clientInterface, serviceName);
             }
         }
-
-        /// <summary>
-        /// Registers the remote services in implementing assembly to the service registry.
-        /// </summary>
-        /// <param name="registry">The service registry.</param>
-        public abstract void Register(IServiceRegistry registry);
     }
 }

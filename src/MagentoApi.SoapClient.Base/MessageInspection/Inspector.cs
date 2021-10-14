@@ -46,6 +46,12 @@ namespace Compori.MagentoApi.SoapClient.MessageInspection
         protected IsCustomerNotifiedModification isCustomerNotifiedModification;
 
         /// <summary>
+        /// Gets the fault modification.
+        /// </summary>
+        /// <value>The fault modification.</value>
+        private FaultModification FaultModification { get; }
+
+        /// <summary>
         /// Gets or sets a value indicating whether message should be traced.
         /// </summary>
         /// <value><c>true</c> if message will be traced; otherwise, <c>false</c>.</value>
@@ -89,7 +95,8 @@ namespace Compori.MagentoApi.SoapClient.MessageInspection
             NamespaceModification namespaceModification,
             QuantityModification quantityModification,
             AuthorizationToken authorizationToken,
-            IsCustomerNotifiedModification isCustomerNotifiedModification)
+            IsCustomerNotifiedModification isCustomerNotifiedModification,
+            FaultModification faultModification)
         {
             this.settings = settings;
             this.tracer = tracer;
@@ -97,6 +104,7 @@ namespace Compori.MagentoApi.SoapClient.MessageInspection
             this.isCustomerNotifiedModification = isCustomerNotifiedModification;
             this.namespaceModification = namespaceModification;
             this.authorizationToken = authorizationToken;
+            this.FaultModification = faultModification;
             this.actions = new ConcurrentDictionary<Guid, string>();
         }
 
@@ -171,6 +179,10 @@ namespace Compori.MagentoApi.SoapClient.MessageInspection
             // modify empty <qty> in catalogProductRepositoryV1SaveResponse
             this.quantityModification.Modify(doc);
             this.isCustomerNotifiedModification.Modify(doc);
+            if(reply.IsFault)
+            {
+                this.FaultModification.Modify(doc, this.OriginalNamespace);
+            }
 
             //
             // Convert back into message

@@ -1,9 +1,9 @@
 #tool nuget:?package=NuGet.CommandLine&version=5.9.1
 #tool nuget:?package=ReportGenerator&version=4.2.15
-// #tool nuget:?package=coverlet.console&version=1.5.3
 #tool nuget:?package=coverlet.console&version=3.1.0
 // https://github.com/cake-build/cake/issues/2077
 #tool nuget:?package=Microsoft.TestPlatform&version=16.2.0
+#tool nuget:?package=Compori.MagentoApi.SoapSvcUtil&version=0.1.0
 
 //////////////////////////////////////////////////////////////////////
 // ARGUMENTS
@@ -203,6 +203,95 @@ Task("Deploy")
         SkipDuplicate = true
     });    
 });
+
+// Target : GenerateRemoteServiceList
+// 
+// Description
+// - Generates a service list from a magento webshop using credentials
+Task("GenerateRemoteServiceList")
+    .Does(() =>
+{
+    FilePath utilPath = Context.Tools.Resolve("Compori.MagentoApi.SoapSvcUtil.dll");
+
+    var baseEndpoint = Argument("BaseEndpoint", "");
+    var user = Argument("User", "");
+    var password = Argument("Password", "");
+    var output = Argument("Output", "");
+
+    var arguments = "";
+    if(!string.IsNullOrWhiteSpace(baseEndpoint)) {
+        arguments += $"-a {baseEndpoint} ";
+    }
+    if(!string.IsNullOrWhiteSpace(user)) {
+        arguments += $"-u {user} ";
+    }
+    if(!string.IsNullOrWhiteSpace(password)) {
+        arguments += $"-p {password} ";
+    }    
+    if(!string.IsNullOrWhiteSpace(output)) {
+        arguments += $"-o \"{output}\" ";
+    }    
+
+    arguments = $"list {arguments}".Trim();
+    DotNetCoreExecute(utilPath, arguments);
+});
+
+
+// Target : GenerateRemoteServiceCode
+// 
+// Description
+// - Generates a service list from a magento webshop using credentials
+Task("GenerateRemoteServiceCode")
+    .Does(() =>
+{
+    FilePath utilPath = Context.Tools.Resolve("Compori.MagentoApi.SoapSvcUtil.dll");
+
+    var baseEndpoint = Argument("BaseEndpoint", "");
+    var user = Argument("User", "");
+    var password = Argument("Password", "");
+    var output = Argument("Output", "");
+    var serviceFile = Argument("ServiceFile", "");
+    var namespaceName = Argument("Namespace", "");
+
+    var arguments = "";
+    if(!string.IsNullOrWhiteSpace(baseEndpoint)) {
+        arguments += $"-a {baseEndpoint} ";
+    }
+    if(!string.IsNullOrWhiteSpace(user)) {
+        arguments += $"-u {user} ";
+    }
+    if(!string.IsNullOrWhiteSpace(password)) {
+        arguments += $"-p {password} ";
+    }    
+    if(!string.IsNullOrWhiteSpace(serviceFile)) {
+        arguments += $"-s \"{serviceFile}\" ";
+    }    
+    if(!string.IsNullOrWhiteSpace(output)) {
+        arguments += $"-o \"{output}\" ";
+    }    
+    if(!string.IsNullOrWhiteSpace(namespaceName)) {
+        arguments += $"-n \"{namespaceName}\" ";
+    }    
+    arguments = $"build {arguments}".Trim();
+    DotNetCoreExecute(utilPath, arguments);
+
+    // Information(utilPath.ToString());
+    // Information(arguments.ToString());
+
+// compori.magentoapi.soap-svcutil build -a http://the-magento-shop/ -u adminuser -p adminpassword -o c:\temp\service-files -n MyNamesSpace.RemoteServices
+
+    /*
+    StartProcess(nugetPath, new ProcessSettings {
+        Arguments = new ProcessArgumentBuilder()
+            .Append("install")
+            .Append("xunit.runner.console")
+        });    
+    */
+    // compori.magentoapi.soap-svcutil list -a http://the-magento-shop/ -u adminuser -p adminpassword -o services.txt
+    // DotNetCoreRun("");
+    // DotNetCoreTool("./src/MagentoApi.SoapClient.Community243", "compori.magentoapi.soap-svcutil", "help list");
+});
+
 
 // Target : Build
 // 

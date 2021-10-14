@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope" xmlns:m="http://magento.developing.site/my-shop/default?services=catalogProductRepositoryV1">
+  <env:Body>
+    <env:Fault>
+      <env:Code>
+        <env:Value>env:Sender</env:Value>
+      </env:Code>
+      <env:Reason>
+        <env:Text xml:lang="de">Invalid product data: %1</env:Text>
+      </env:Reason>
+      <env:Detail>
+        <m:GenericFault>
+          <Trace>TRACEDATA</Trace>
+          <Parameters>
+            <item>
+              <key>1</key>
+              <value>Invalid attribute set entity type</value>
+            </item>
+          </Parameters>
+        </m:GenericFault>
+      </env:Detail>
+    </env:Fault>
+  </env:Body>
+</env:Envelope>

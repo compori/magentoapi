@@ -30,6 +30,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="MessageInspection\data\fault-modification-1.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="MessageInspection\data\fault-modification-1-expected.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="MessageInspection\data\namespace-modification-1-expected.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
